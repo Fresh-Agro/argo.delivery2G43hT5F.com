@@ -270,7 +270,7 @@
                 <div class="grid grid-cols-1 gap-3">
                     <label class="flex items-center justify-between p-4 border border-primary bg-primary-container/5 rounded-xl cursor-pointer hover:border-primary transition-all">
                         <div class="flex items-center gap-3">
-                            <input checked type="radio" name="payment_method" value="Cash on Delivery" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <input checked type="radio" name="payment_method" value="Cash on Delivery" onchange="toggleDigitalPayment(this.value)" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
                             <div>
                                 <h4 class="font-semibold text-sm">Cash on Delivery (ক্যাশ অন ডেলিভারি)</h4>
                                 <p class="text-on-surface-variant text-xs">পণ্য হাতে পেয়ে ডেলিভারি ম্যানের কাছে মূল্য পরিশোধ করুন।</p>
@@ -281,10 +281,10 @@
 
                     <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
                         <div class="flex items-center gap-3">
-                            <input type="radio" name="payment_method" value="bKash" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <input type="radio" name="payment_method" value="bKash" onchange="toggleDigitalPayment(this.value)" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
                             <div>
                                 <h4 class="font-semibold text-sm">bKash (বিকাশ) <span class="text-pink-600 font-bold ml-1">[01XXXXXXXXX]</span></h4>
-                                <p class="text-on-surface-variant text-xs">এই নাম্বারে টাকা পাঠিয়ে অর্ডার সম্পন্ন করুন।</p>
+                                <p class="text-on-surface-variant text-xs">নিচের বাটনে ক্লিক করে সরাসরি পেমেন্ট করুন।</p>
                             </div>
                         </div>
                         <span class="text-pink-600 font-extrabold text-sm">bKash</span>
@@ -292,10 +292,10 @@
 
                     <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
                         <div class="flex items-center gap-3">
-                            <input type="radio" name="payment_method" value="Nagad" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <input type="radio" name="payment_method" value="Nagad" onchange="toggleDigitalPayment(this.value)" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
                             <div>
                                 <h4 class="font-semibold text-sm">Nagad (নগদ) <span class="text-orange-600 font-bold ml-1">[01XXXXXXXXX]</span></h4>
-                                <p class="text-on-surface-variant text-xs">এই নাম্বারে টাকা পাঠিয়ে অর্ডার সম্পন্ন করুন।</p>
+                                <p class="text-on-surface-variant text-xs">নিচের বাটনে ক্লিক করে সরাসরি পেমেন্ট করুন।</p>
                             </div>
                         </div>
                         <span class="text-orange-600 font-extrabold text-sm">Nagad</span>
@@ -303,10 +303,10 @@
 
                     <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
                         <div class="flex items-center gap-3">
-                            <input type="radio" name="payment_method" value="Rocket" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <input type="radio" name="payment_method" value="Rocket" onchange="toggleDigitalPayment(this.value)" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
                             <div>
                                 <h4 class="font-semibold text-sm">Rocket (রকেট) <span class="text-purple-700 font-bold ml-1">[01XXXXXXXXX-X]</span></h4>
-                                <p class="text-on-surface-variant text-xs">এই নাম্বারে রকেট মানি ট্রান্সফার করুন।</p>
+                                <p class="text-on-surface-variant text-xs">নিচের বাটনে ক্লিক করে সরাসরি পেমেন্ট করুন।</p>
                             </div>
                         </div>
                         <span class="text-purple-700 font-extrabold text-sm">Rocket</span>
@@ -314,7 +314,7 @@
 
                     <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
                         <div class="flex items-center gap-3">
-                            <input type="radio" name="payment_method" value="Card Payment" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <input type="radio" name="payment_method" value="Card Payment" onchange="toggleDigitalPayment(this.value)" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
                             <div>
                                 <h4 class="font-semibold text-sm">Visa / MasterCard</h4>
                                 <p class="text-on-surface-variant text-xs">যেকোনো ডেবিট বা ক্রেডিট কার্ড</p>
@@ -322,6 +322,27 @@
                         </div>
                         <span class="material-symbols-outlined text-blue-600">credit_card</span>
                     </label>
+                </div>
+
+                <div id="digital-payment-box" class="hidden mt-6 p-5 bg-slate-50 rounded-xl border border-dashed border-primary/50 text-center space-y-4">
+                    <p class="text-sm font-semibold text-on-surface-variant">
+                        নিচের <span id="pay-method-name">বিকাশ</span> বাটনে ক্লিক করলে সরাসরি আপনার পেমেন্ট অ্যাপ ওপেন হয়ে যাবে:
+                    </p>
+                    <button type="button" onclick="openPaymentApp()" id="instant-pay-btn" class="w-full max-w-xs mx-auto py-3 px-6 rounded-lg font-bold text-white shadow transition-all transform active:scale-95 flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">touch_app</span>
+                        <span id="instant-pay-text">Pay Now via bKash</span>
+                    </button>
+                    
+                    <div class="pt-2 grid grid-cols-1 md:grid-cols-2 gap-3 text-left">
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-on-surface-variant">Sender Number (যে নম্বর থেকে টাকা পাঠিয়েছেন)</label>
+                            <input id="sender-number" type="tel" placeholder="01XXXXXXXXX" class="w-full border-border-subtle rounded-lg p-2 text-sm focus:ring-primary focus:border-primary bg-white"/>
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-xs font-bold text-on-surface-variant">Transaction ID / TrxID (ঐচ্ছিক)</label>
+                            <input id="trx-id" type="text" placeholder="e.g. 8N7X9K2P" class="w-full border-border-subtle rounded-lg p-2 text-sm focus:ring-primary focus:border-primary bg-white"/>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="mt-10 flex justify-between items-center">
@@ -366,6 +387,12 @@
 let productPrice = 0;
 let deliveryFee = 60;
 let selectedDeliveryName = "Express";
+let activePaymentMethod = "Cash on Delivery";
+
+// আপনার পার্সোনাল/মার্চেন্ট পেমেন্ট নম্বর এখানে সেট করুন
+const bKashNumber = "01XXXXXXXXX";
+const nagadNumber = "01XXXXXXXXX";
+const rocketNumber = "01XXXXXXXXX";
 
 window.onload = function() {
     const savedName = localStorage.getItem('checkout_product_name') || "Fresh Organic Product";
@@ -406,6 +433,54 @@ function updatePrices() {
     let grandTotal = productPrice + deliveryFee;
     document.getElementById('summary-total').innerText = "Tk " + grandTotal;
     document.getElementById('place-order-btn').innerText = `Place Order (Tk ${grandTotal})`;
+}
+
+// ডিজিটাল পেমেন্ট অপশন পরিবর্তনের হ্যান্ডলার
+function toggleDigitalPayment(value) {
+    activePaymentMethod = value;
+    const box = document.getElementById('digital-payment-box');
+    const nameSpan = document.getElementById('pay-method-name');
+    const btn = document.getElementById('instant-pay-btn');
+    const btnText = document.getElementById('instant-pay-text');
+
+    if (value === 'bKash' || value === 'Nagad' || value === 'Rocket') {
+        box.classList.remove('hidden');
+        nameSpan.innerText = value;
+        btnText.innerText = `Pay Now via ${value}`;
+        
+        // ব্র্যান্ডিং কালার ডাইনামিক সেট করার জন্য
+        if (value === 'bKash') {
+            btn.className = "w-full max-w-xs mx-auto py-3 px-6 rounded-lg font-bold text-white shadow transition-all bg-pink-600 hover:bg-pink-700 flex items-center justify-center gap-2";
+        } else if (value === 'Nagad') {
+            btn.className = "w-full max-w-xs mx-auto py-3 px-6 rounded-lg font-bold text-white shadow transition-all bg-orange-600 hover:bg-orange-700 flex items-center justify-center gap-2";
+        } else if (value === 'Rocket') {
+            btn.className = "w-full max-w-xs mx-auto py-3 px-6 rounded-lg font-bold text-white shadow transition-all bg-purple-700 hover:bg-purple-800 flex items-center justify-center gap-2";
+        }
+    } else {
+        box.classList.add('hidden');
+    }
+}
+
+// সরাসরি বিকাশ/নগদ/রকেট অ্যাপে নিয়ে যাওয়ার ইন্টেন্ট ফাংশন
+function openPaymentApp() {
+    let appUrl = "";
+    
+    if (activePaymentMethod === 'bKash') {
+        // বিকাশ অ্যাপ ও নম্বর ডায়াল করার ডাইরেক্ট ইন্টেন্ট প্রোটোকল
+        appUrl = `bKash://`; 
+        window.location.href = `tel:*247*1*${bKashNumber}%23`; // ব্যাকআপ ইউএসএসডি প্রম্পট মোবাইল ব্রাউজারে রান করতে
+    } else if (activePaymentMethod === 'Nagad') {
+        appUrl = `mymoneynagad://`;
+        window.location.href = `tel:*167*${nagadNumber}%23`;
+    } else if (activePaymentMethod === 'Rocket') {
+        appUrl = `dbblrocket://`;
+        window.location.href = `tel:*322%23`;
+    }
+
+    // স্মার্টফোনের অ্যাপ সরাসরি ওপেন করার চেষ্টা করবে
+    setTimeout(() => {
+        window.open(appUrl, '_blank');
+    }, 100);
 }
 
 function goToStep(stepNumber) {
@@ -477,11 +552,21 @@ async function placeOrder() {
     const selectedPaymentEl = document.querySelector('input[name="payment_method"]:checked');
     const paymentMethod = selectedPaymentEl ? selectedPaymentEl.value : "Not Selected";
 
+    // ডিজিটাল পেমেন্টের এক্সট্রা ফিল্ড ভ্যালু
+    const senderNumber = document.getElementById('sender-number').value || "N/A";
+    const trxId = document.getElementById('trx-id').value || "N/A";
+
     const productName = document.getElementById('checkout-item-title').innerText;
     let grandTotal = productPrice + deliveryFee;
 
     if(!phoneNo.trim()) {
         alert("দয়া করে আপনার ফোন নাম্বারটি দিন।");
+        return;
+    }
+
+    // যদি এডভান্স পেমেন্ট অপশন সিলেক্ট করা থাকে এবং কাস্টমার সেন্ডার নম্বর না দেয়
+    if ((paymentMethod === 'bKash' || paymentMethod === 'Nagad' || paymentMethod === 'Rocket') && senderNumber === "N/A") {
+        alert("দয়া করে পেমেন্ট করার পর আপনার 'Sender Number' টি ইনপুট বক্সে দিন।");
         return;
     }
 
@@ -494,6 +579,8 @@ async function placeOrder() {
         phoneNo: "+880" + phoneNo,
         deliveryMethod: selectedDeliveryName,
         paymentMethod: paymentMethod,
+        senderNumber: senderNumber, // শিটে যোগ হবে
+        trxId: trxId,               // শিটে যোগ হবে
         totalAmount: "Tk " + grandTotal,
         orderDate: new Date().toLocaleString()
     };
