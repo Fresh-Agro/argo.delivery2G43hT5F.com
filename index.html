@@ -426,53 +426,106 @@
 </div>
 </footer>
 <script>
-        function goToStep(stepNumber) {
-            // Hide all steps
-            const steps = [1, 2, 3, 4];
-            steps.forEach(s => {
-                const stepEl = document.getElementById(`step-${s}`);
-                const indicatorEl = document.getElementById(`step-indicator-${s}`);
-                
-                stepEl.classList.add('hide-step');
-                stepEl.classList.remove('show-step');
+       function goToStep(stepNumber) {
+    const steps = [1, 2, 3, 4];
+    steps.forEach(s => {
+        const stepEl = document.getElementById(`step-${s}`);
+        const indicatorEl = document.getElementById(`step-indicator-${s}`);
+        
+        stepEl.classList.add('hide-step');
+        stepEl.classList.remove('show-step');
 
-                // Update indicator styling
-                const circle = indicatorEl.querySelector('div');
-                const label = indicatorEl.querySelector('span');
+        const circle = indicatorEl.querySelector('div');
+        const label = indicatorEl.querySelector('span');
 
-                if (s < stepNumber) {
-                    // Completed steps
-                    circle.classList.remove('bg-primary', 'bg-surface-container-high');
-                    circle.classList.add('bg-success-green');
-                    circle.innerHTML = '<span class="material-symbols-outlined">check</span>';
-                    label.classList.add('text-success-green');
-                    label.classList.remove('text-primary', 'text-on-surface-variant');
-                } else if (s === stepNumber) {
-                    // Active step
-                    circle.classList.add('bg-primary');
-                    circle.classList.remove('bg-surface-container-high', 'bg-success-green');
-                    circle.innerHTML = s;
-                    label.classList.add('text-primary');
-                    label.classList.remove('text-on-surface-variant', 'text-success-green');
-                } else {
-                    // Future steps
-                    circle.classList.add('bg-surface-container-high');
-                    circle.classList.remove('bg-primary', 'bg-success-green');
-                    circle.innerHTML = s;
-                    label.classList.add('text-on-surface-variant');
-                    label.classList.remove('text-primary', 'text-success-green');
-                }
-            });
-
-            // Show current step
-            const currentStep = document.getElementById(`step-${stepNumber}`);
-            currentStep.classList.remove('hide-step');
-            setTimeout(() => {
-                currentStep.classList.add('show-step');
-            }, 50);
-
-            // Scroll to top of flow on mobile
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (s < stepNumber) {
+            circle.classList.remove('bg-primary', 'bg-surface-container-high');
+            circle.classList.add('bg-success-green');
+            circle.innerHTML = '<span class="material-symbols-outlined">check</span>';
+            label.classList.add('text-success-green');
+            label.classList.remove('text-primary', 'text-on-surface-variant');
+        } else if (s === stepNumber) {
+            circle.classList.add('bg-primary');
+            circle.classList.remove('bg-surface-container-high', 'bg-success-green');
+            circle.innerHTML = s;
+            label.classList.add('text-primary');
+            label.classList.remove('text-on-surface-variant', 'text-success-green');
+        } else {
+            circle.classList.add('bg-surface-container-high');
+            circle.classList.remove('bg-primary', 'bg-success-green');
+            circle.innerHTML = s;
+            label.classList.add('text-on-surface-variant');
+            label.classList.remove('text-primary', 'text-success-green');
         }
+    });
+
+    const currentStep = document.getElementById(`step-${stepNumber}`);
+    currentStep.classList.remove('hide-step');
+    setTimeout(() => {
+        currentStep.classList.add('show-step');
+    }, 50);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ---- নতুন কোড: ইউজারের ডাটা কালেক্ট এবং সার্ভারে পাঠানোর ফাংশন ----
+async function placeOrder() {
+    // ১. ফর্মের সব ইনপুট ফিল্ড থেকে ডাটা নেওয়া
+    const district = document.querySelector('select').value;
+    const area = document.querySelector('input[placeholder="e.g. Dhanmondi, Banani"]').value;
+    const roadDetails = document.querySelector('input[placeholder="Enter road details"]').value;
+    const houseNo = document.querySelector('input[placeholder="Flat 4B, House 23"]').value;
+    const phoneNo = document.querySelector('input[placeholder="1XXX XXXXXX"]').value;
+    
+    // পেমেন্ট মেথড চেক করা
+    const paymentMethod = document.querySelector('input[name="payment"]:checked').parentElement.querySelector('h4').innerText;
+    
+    // টোটাল টাকার পরিমাণ
+    const totalPayable = "Tk 1,745"; 
+
+    // সব ডাটা এক জায়গায় সাজানো
+    const orderData = {
+        district: district,
+        area: area,
+        roadDetails: roadDetails,
+        houseNo: houseNo,
+        phoneNo: "+880" + phoneNo,
+        paymentMethod: paymentMethod,
+        totalAmount: totalPayable,
+        orderDate: new Date().toLocaleString()
+    };
+
+    // ফোন নাম্বার ফাকা থাকলে অ্যালার্ট দেবে
+    if(!phoneNo) {
+        alert("দয়া করে আপনার ফোন নাম্বারটি দিন।");
+        return;
+    }
+
+    // আপনার সার্ভার বা Google Web App URL (ধাপ ২ এ পাবেন)
+    const serverURL = "আপনার_ফ্রি_সার্ভার_লিংক_এখানে_বসাবেন"; 
+
+    try {
+        // সার্ভারে ডাটা পাঠানো (POST Request)
+        const response = await fetch(serverURL, {
+            method: 'POST',
+            mode: 'no-cors', // Google Sheets এর জন্য এটি প্রয়োজন
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(orderData)
+        });
+
+        alert("অর্ডারটি সফলভাবে সাবমিট হয়েছে!");
+        // অর্ডার সফল হলে ইউজারকে হোম পেজে বা থ্যাংক ইউ পেজে পাঠাতে পারেন
+        // window.location.href = "/thank-you.html";
+        
+    } catch (error) {
+        console.error("Error:", error);
+        alert("দুঃখিত, অর্ডারটি নেওয়া সম্ভব হয়নি। আবার চেষ্টা করুন।");
+    }
+}
+
+// ৪ নম্বর স্টেপের "Place Order" বাটনে এই ফাংশনটি লিংক করা
+document.querySelector('#step-4 button.bg-secondary').setAttribute('onclick', 'placeOrder()');
     </script>
 </body></html>
