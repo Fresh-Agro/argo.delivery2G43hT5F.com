@@ -7,6 +7,71 @@
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary": "#ffffff",
+                        "success-green": "#2E7D32",
+                        "on-primary-fixed": "#002204",
+                        "tertiary-container": "#b14b6f",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#7f2448",
+                        "on-secondary-fixed-variant": "#693c00",
+                        "primary-fixed": "#a3f69c",
+                        "on-error": "#ffffff",
+                        "inverse-on-surface": "#f3f0ef",
+                        "error": "#ba1a1a",
+                        "tertiary": "#923357",
+                        "on-tertiary-fixed": "#3f001c",
+                        "on-secondary-fixed": "#2c1600",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-container": "#653900",
+                        "tertiary-fixed": "#ffd9e2",
+                        "outline-variant": "#bfcaba",
+                        "surface-container-highest": "#e5e2e1",
+                        "surface-alt": "#F5F5F5",
+                        "surface-tint": "#1b6d24",
+                        "outline": "#707a6c",
+                        "border-subtle": "#E0E0E0",
+                        "on-surface": "#1b1c1c",
+                        "inverse-primary": "#88d982",
+                        "surface-variant": "#e5e2e1",
+                        "inverse-surface": "#303030",
+                        "primary": "#0d631b",
+                        "on-primary-container": "#cbffc2",
+                        "on-error-container": "#93000a",
+                        "secondary-container": "#ff9800",
+                        "on-surface-variant": "#40493d",
+                        "tertiary-fixed-dim": "#ffb1c7",
+                        "bengali-text": "#424242",
+                        "surface-container-high": "#eae7e7",
+                        "on-primary-fixed-variant": "#005312",
+                        "primary-fixed-dim": "#88d982",
+                        "surface-container-low": "#f6f3f2",
+                        "secondary-fixed": "#ffdcbe",
+                        "secondary-fixed-dim": "#ffb870",
+                        "background": "#fcf9f8",
+                        "on-tertiary": "#ffffff",
+                        "warning-orange": "#FF9800",
+                        "surface-bright": "#fcf9f8",
+                        "on-tertiary-container": "#ffedf0",
+                        "surface-container": "#f0eded",
+                        "error-container": "#ffdad6",
+                        "surface": "#fcf9f8",
+                        "secondary": "#8b5000",
+                        "surface-dim": "#dcd9d9",
+                        "on-background": "#1b1c1c",
+                        "primary-container": "#2e7d32"
+                    },
+                },
+            },
+        }
+    </script>
+    
     <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
@@ -53,32 +118,32 @@
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
         <div class="lg:col-span-8 space-y-6">
-            <div class="bg-white p-6 rounded-xl border border-border-subtle flex justify-between items-center mb-8 overflow-x-auto">
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle flex justify-between items-center mb-8 overflow-x-auto">
                 <div class="flex items-center gap-3 min-w-fit" id="step-indicator-1">
                     <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
-                    <span class="text-sm font-medium text-primary">Shipping</span>
+                    <span class="text-sm font-bold text-primary">Shipping</span>
                 </div>
                 <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
                 <div class="flex items-center gap-3 min-w-fit" id="step-indicator-2">
                     <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">2</div>
-                    <span class="text-sm font-medium text-on-surface-variant">Schedule</span>
+                    <span class="text-sm font-bold text-on-surface-variant">Schedule</span>
                 </div>
                 <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
                 <div class="flex items-center gap-3 min-w-fit" id="step-indicator-3">
                     <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">3</div>
-                    <span class="text-sm font-medium text-on-surface-variant">Summary</span>
+                    <span class="text-sm font-bold text-on-surface-variant">Summary</span>
                 </div>
                 <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
                 <div class="flex items-center gap-3 min-w-fit" id="step-indicator-4">
                     <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">4</div>
-                    <span class="text-sm font-medium text-on-surface-variant">Payment</span>
+                    <span class="text-sm font-bold text-on-surface-variant">Payment</span>
                 </div>
             </div>
 
             <section class="step-transition show-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-1">
                 <div class="flex items-center gap-3 mb-6">
                     <span class="material-symbols-outlined text-primary">location_on</span>
-                    <h2 class="text-2xl font-bold">Where should we deliver?</h2>
+                    <h2 class="text-2xl font-bold text-on-surface">Where should we deliver?</h2>
                 </div>
                 <form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault();">
                     <div class="space-y-2">
@@ -230,11 +295,9 @@
 </main>
 
 <script>
-// বিশ্বব্যাপী ভেরিয়েবল আগের পেজের দাম রাখার জন্য
 let productPrice = 0;
 let deliveryFee = 60;
 
-// পেজটি লোড হওয়ার সাথে সাথে লোকাল স্টোরেজ থেকে তথ্য নিয়ে দাম আপডেট করবে
 window.onload = function() {
     const savedName = localStorage.getItem('checkout_product_name') || "Fresh Organic Product";
     const savedMeta = localStorage.getItem('checkout_product_meta') || "1 unit";
@@ -243,15 +306,13 @@ window.onload = function() {
     if(savedPrice) {
         productPrice = parseInt(savedPrice);
     } else {
-        productPrice = 120; // ডাটা না পাওয়া গেলে একটা ডিফল্ট দাম
+        productPrice = 120; 
     }
 
-    // স্ক্রিনের লেখা ও দামগুলো পরিবর্তন করা
     document.getElementById('checkout-item-title').innerText = savedName;
     document.getElementById('checkout-item-meta').innerText = savedMeta;
     document.getElementById('checkout-item-price').innerText = "Tk " + productPrice;
     
-    // রাইট সাইড ও বাটনগুলোর ক্যালকুলেশন আপডেট
     document.getElementById('summary-subtotal').innerText = "Tk " + productPrice;
     
     let grandTotal = productPrice + deliveryFee;
@@ -260,13 +321,12 @@ window.onload = function() {
 };
 
 function goToStep(stepNumber) {
-    // ---- ফোন নাম্বার ভ্যালিডেশন (১ নম্বর থেকে ২ নম্বরে যাওয়ার সময়) ----
     if (stepNumber === 2) {
         const phoneInput = document.getElementById('phone');
         if (phoneInput && !phoneInput.value.trim()) {
             alert("দয়া করে পরের ধাপে যাওয়ার আগে আপনার ফোন নাম্বারটি দিন।");
             phoneInput.focus();
-            return; // আটকে দেবে
+            return;
         }
     }
 
