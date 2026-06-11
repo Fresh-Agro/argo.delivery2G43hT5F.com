@@ -426,17 +426,16 @@
 </div>
 </footer>
 <script>
-       function goToStep(stepNumber) {
-    // ---- নতুন কোড: ১ম ধাপ থেকে ২য় ধাপে যাওয়ার সময় ফোন নাম্বার চেক করা ----
-    // যদি ইউজার ১ম ধাপে থাকে এবং ২য় ধাপে যাওয়ার চেষ্টা করে (Next বাটনে ক্লিক করে)
+       function goToStep(stepNumber){
+               // ---- নতুন কোড: ১ম ধাপ থেকে ২য় ধাপে যাওয়ার সময় ফোন নাম্বার চেক করা ----
     if (stepNumber === 2) {
         const phoneInput = document.querySelector('input[placeholder="1XXX XXXXXX"]');
         if (phoneInput && !phoneInput.value.trim()) {
-            alert("দয়া করে পরের ধাপে যাওয়ার আগে আপনার ফোন নাম্বারটি দিন।");
+            alert("Please enter your phone number first.");
             phoneInput.focus(); // ফোন নাম্বারের বক্সে কার্সর নিয়ে যাবে
-            return; // এখানেই কোড আটকে যাবে, পরের লাইনে যাবে না
+            return; // এখানেই আটকে দেবে, পরের ধাপে যেতে দেবে না
         }
-    }{
+    }
     const steps = [1, 2, 3, 4];
     steps.forEach(s => {
         const stepEl = document.getElementById(`step-${s}`);
