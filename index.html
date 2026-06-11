@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-
-<html class="light" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Checkout | Fresh Agro</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Checkout | Fresh Agro</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=400;500;600;700;800&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
@@ -67,44 +67,12 @@
                         "on-background": "#1b1c1c",
                         "primary-container": "#2e7d32"
                     },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "container-max-width": "1280px",
-                        "margin-desktop": "32px",
-                        "margin-mobile": "16px",
-                        "gutter": "24px",
-                        "unit": "8px"
-                    },
-                    "fontFamily": {
-                        "headline-xl": ["Inter"],
-                        "label-md": ["Inter"],
-                        "body-lg": ["Inter"],
-                        "headline-md": ["Inter"],
-                        "body-md": ["Inter"],
-                        "headline-lg": ["Inter"],
-                        "headline-xl-mobile": ["Inter"],
-                        "label-sm": ["Inter"]
-                    },
-                    "fontSize": {
-                        "headline-xl": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "label-md": ["14px", {"lineHeight": "20px", "fontWeight": "500"}],
-                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                        "headline-md": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
-                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                        "headline-lg": ["28px", {"lineHeight": "36px", "fontWeight": "600"}],
-                        "headline-xl-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
-                        "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}]
-                    }
                 },
             },
         }
     </script>
-<style>
+    
+    <style>
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
             display: inline-block;
@@ -127,414 +95,427 @@
     </style>
 </head>
 <body class="bg-surface-alt font-body-md text-on-surface">
-<!-- TopNavBar (Minimal for Checkout) -->
+
 <nav class="bg-surface dark:bg-surface-dim shadow-sm dark:shadow-none border-b border-border-subtle dark:border-outline-variant fixed top-0 w-full z-50 h-20">
-<div class="flex justify-between items-center w-full px-margin-desktop max-w-container-max-width mx-auto h-full">
-<div class="flex items-center gap-4">
-<a class="flex items-center gap-2 group" href="/">
-<span class="material-symbols-outlined text-primary text-3xl" data-icon="arrow_back">arrow_back</span>
-<span class="font-headline-lg text-headline-lg font-bold text-primary dark:text-inverse-primary">Fresh Agro</span>
-</a>
-</div>
-<div class="hidden md:flex items-center gap-8">
-<div class="flex items-center gap-2 text-on-surface-variant">
-<span class="material-symbols-outlined" data-icon="lock">lock</span>
-<span class="font-label-md text-label-md">Secure Checkout</span>
-</div>
-</div>
-<div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-on-surface-variant" data-icon="help_outline">help_outline</span>
-</div>
-</div>
+    <div class="flex justify-between items-center w-full px-6 max-w-[1280px] mx-auto h-full">
+        <div class="flex items-center gap-4">
+            <a class="flex items-center gap-2 group" href="/">
+                <span class="material-symbols-outlined text-primary text-3xl">arrow_back</span>
+                <span class="text-2xl font-bold text-primary">Fresh Agro</span>
+            </a>
+        </div>
+        <div class="hidden md:flex items-center gap-2 text-on-surface-variant">
+            <span class="material-symbols-outlined">lock</span>
+            <span class="text-sm font-medium">Secure Checkout</span>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="material-symbols-outlined text-on-surface-variant">help_outline</span>
+        </div>
+    </div>
 </nav>
-<main class="pt-28 pb-20 px-margin-mobile md:px-margin-desktop max-w-container-max-width mx-auto">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-start">
-<!-- Left Column: Multi-step Flow -->
-<div class="lg:col-span-8 space-y-6">
-<!-- Progress Stepper -->
-<div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle flex justify-between items-center mb-8 overflow-x-auto">
-<div class="flex items-center gap-3 min-w-fit" id="step-indicator-1">
-<div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
-<span class="font-label-md text-label-md text-primary">Shipping</span>
-</div>
-<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
-<div class="flex items-center gap-3 min-w-fit" id="step-indicator-2">
-<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">2</div>
-<span class="font-label-md text-label-md text-on-surface-variant">Schedule</span>
-</div>
-<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
-<div class="flex items-center gap-3 min-w-fit" id="step-indicator-3">
-<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">3</div>
-<span class="font-label-md text-label-md text-on-surface-variant">Summary</span>
-</div>
-<div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
-<div class="flex items-center gap-3 min-w-fit" id="step-indicator-4">
-<div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">4</div>
-<span class="font-label-md text-label-md text-on-surface-variant">Payment</span>
-</div>
-</div>
-<!-- STEP 1: Shipping Address -->
-<section class="step-transition show-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-1">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="location_on">location_on</span>
-<h2 class="font-headline-lg text-headline-lg">Where should we deliver?</h2>
-</div>
-<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface-variant">District</label>
-<select class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary">
-<option>Dhaka</option>
-<option>Chattogram</option>
-<option>Sylhet</option>
-</select>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface-variant">Area</label>
-<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="e.g. Dhanmondi, Banani" type="text"/>
-</div>
-<div class="md:col-span-2 space-y-2">
-<label class="font-label-md text-label-md text-on-surface-variant">Road Name / Number</label>
-<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Enter road details" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface-variant">House / Apartment No.</label>
-<input class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Flat 4B, House 23" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-label-md text-on-surface-variant">Phone Number</label>
-<div class="flex">
-<span class="bg-surface-container-high border border-r-0 border-border-subtle rounded-l-lg px-3 flex items-center text-on-surface-variant">+880</span>
-<input class="w-full border-border-subtle rounded-r-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="1XXX XXXXXX" type="tel"/>
-</div>
-</div>
-</form>
-<div class="mt-10 flex justify-end">
-<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(2)">
-                            Next: Delivery Schedule
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- STEP 2: Delivery Scheduling -->
-<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-2">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="schedule">schedule</span>
-<h2 class="font-headline-lg text-headline-lg">Choose delivery slot</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-<button class="p-6 border-2 border-primary bg-primary-container/10 rounded-xl text-left flex flex-col gap-2 relative">
-<div class="absolute top-4 right-4 bg-primary text-white p-1 rounded-full flex items-center justify-center">
-<span class="material-symbols-outlined text-sm" data-icon="check">check</span>
-</div>
-<span class="bg-warning-orange text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded w-fit">Fastest</span>
-<span class="font-headline-md text-headline-md">Express Delivery</span>
-<span class="text-on-surface-variant font-body-md">Delivery in 60 mins</span>
-<span class="font-bold text-primary mt-2">Tk 60</span>
-</button>
-<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
-<span class="font-headline-md text-headline-md group-hover:text-primary">Today Afternoon</span>
-<span class="text-on-surface-variant font-body-md">2:00 PM - 5:00 PM</span>
-<span class="font-bold text-on-surface mt-2">Tk 30</span>
-</button>
-<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
-<span class="font-headline-md text-headline-md group-hover:text-primary">Tomorrow Morning</span>
-<span class="text-on-surface-variant font-body-md">9:00 AM - 12:00 PM</span>
-<span class="font-bold text-on-surface mt-2">Tk 30</span>
-</button>
-<button class="p-6 border border-border-subtle hover:border-primary bg-white rounded-xl text-left flex flex-col gap-2 transition-colors group">
-<span class="font-headline-md text-headline-md group-hover:text-primary">Tomorrow Evening</span>
-<span class="text-on-surface-variant font-body-md">6:00 PM - 9:00 PM</span>
-<span class="font-bold text-on-surface mt-2">Tk 30</span>
-</button>
-</div>
-<div class="mt-10 flex justify-between">
-<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(1)">
-<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-                            Back
-                        </button>
-<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(3)">
-                            Next: Order Summary
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- STEP 3: Order Summary -->
-<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-3">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="shopping_basket">shopping_basket</span>
-<h2 class="font-headline-lg text-headline-lg">Review your items</h2>
-</div>
-<div class="space-y-4 mb-8">
-<!-- Product Item -->
-<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
-<img alt="Fresh Tomatoes" class="w-16 h-16 object-cover rounded-lg" data-alt="Close up professional studio photography of vibrant red ripe organic vine tomatoes on a clean white background. High contrast lighting accentuates the dew drops on the smooth skin. The aesthetic is ultra-fresh and healthy, using a minimalist farm-to-table commercial style with a natural green stem." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4P76DA938zT5FoWgDelQi4GNMpl1NA0V52sG_zffYCF-5WW78FuwrnUvEYq0FvilQM_VLNTWxnQlGo9VrEPDc801s6XC11P44-WsQ0ftyqeZMMxNIJHmioNOF2fAsLuwAUzKSwva0t6fyZNUe2WINf8OcCMjPddGpW58ivFUBgWd3xnSdrgs6pnsdAo_k07GrOCTtn0wfN0Z0kzGKXe9R7hHODJlfRQ8o2U0H0MOoHS3ybeJZFZbjmH31zxf_ZsJxMqcCLh2samLH"/>
-<div class="flex-grow">
-<h4 class="font-headline-md text-headline-md">Organic Vine Tomatoes</h4>
-<p class="text-on-surface-variant text-label-sm">1kg x 2</p>
-</div>
-<span class="font-bold">Tk 240</span>
-</div>
-<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
-<img alt="Brown Eggs" class="w-16 h-16 object-cover rounded-lg" data-alt="Professional studio shot of a rustic basket filled with high-quality organic farm-fresh brown eggs. The lighting is soft and warm, casting gentle shadows to create a tactile and artisanal feel. The color palette consists of natural earth tones, beige, and cream, emphasizing purity and high-protein nutrition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgx9Iu6tNtouwjUlMpVVqun6S0O3okC1zG-Kl9qlZCdlaD2vHB9Jym4DfFcU83Am7S4ZPHib-iHC-yhyT-ga7TopIdDwsIb0tDT_5i8uwmoFwruy5l8bwaRYC1JuKztLe6huI9QZ0HnqHpst9jv8dOy_Frd-EZstsPixZ-CKz5p8Qfj9hEhQhZEjgr3HKkWU21W-U9OYg3dRI6ptnqQ0HjWzwcdTnHb2tPHwaon30HnvVyvqym_0dGiLiiYN3auBjNnAczqlUr8TnS"/>
-<div class="flex-grow">
-<h4 class="font-headline-md text-headline-md">Farm-Fresh Brown Eggs</h4>
-<p class="text-on-surface-variant text-label-sm">12 pcs x 1</p>
-</div>
-<span class="font-bold">Tk 155</span>
-</div>
-<div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg border-2 border-dashed border-primary/20">
-<div class="w-16 h-16 bg-primary-container/20 flex items-center justify-center rounded-lg">
-<span class="material-symbols-outlined text-primary" data-icon="local_shipping">local_shipping</span>
-</div>
-<div class="flex-grow">
-<h4 class="font-headline-md text-headline-md text-primary">Free Shipping Unlocked!</h4>
-<p class="text-on-surface-variant text-label-sm">Your order is over Tk 1500</p>
-</div>
-<span class="font-bold text-success-green">Tk 0</span>
-</div>
-</div>
-<div class="mt-10 flex justify-between">
-<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(2)">
-<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-                            Back
-                        </button>
-<button class="bg-primary hover:bg-primary-container text-white hover:text-on-primary-container px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(4)">
-                            Next: Payment Method
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="chevron_right">chevron_right</span>
-</button>
-</div>
-</section>
-<!-- STEP 4: Payment Selection -->
-<section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-4">
-<div class="flex items-center gap-3 mb-6">
-<span class="material-symbols-outlined text-primary" data-icon="payments">payments</span>
-<h2 class="font-headline-lg text-headline-lg">Select Payment Method</h2>
-</div>
-<div class="space-y-4">
-<label class="flex items-center justify-between p-5 border border-primary bg-primary-container/5 rounded-xl cursor-pointer group">
-<div class="flex items-center gap-4">
-<input checked="" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
-<div>
-<h4 class="font-headline-md text-headline-md">Cash on Delivery</h4>
-<p class="text-on-surface-variant text-label-sm">Pay when you receive the fresh items</p>
-</div>
-</div>
-<span class="material-symbols-outlined text-primary" data-icon="handshake">handshake</span>
-</label>
-<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
-<div class="flex items-center gap-4">
-<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
-<div class="flex items-center gap-3">
-<div class="w-12 h-8 bg-[#E2136E] rounded flex items-center justify-center font-bold text-white text-[10px]">bKash</div>
-<h4 class="font-headline-md text-headline-md">bKash Payment</h4>
-</div>
-</div>
-</label>
-<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
-<div class="flex items-center gap-4">
-<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
-<div class="flex items-center gap-3">
-<div class="w-12 h-8 bg-[#F15A22] rounded flex items-center justify-center font-bold text-white text-[10px]">Nagad</div>
-<h4 class="font-headline-md text-headline-md">Nagad Wallet</h4>
-</div>
-</div>
-</label>
-<label class="flex items-center justify-between p-5 border border-border-subtle hover:border-primary rounded-xl cursor-pointer group transition-all">
-<div class="flex items-center gap-4">
-<input class="w-5 h-5 text-primary border-border-subtle focus:ring-primary" name="payment" type="radio"/>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-secondary" data-icon="credit_card">credit_card</span>
-<h4 class="font-headline-md text-headline-md">Credit / Debit Card</h4>
-</div>
-</div>
-</label>
-</div>
-<div class="mt-10 flex justify-between items-center">
-<button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(3)">
-<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
-                            Back
-                        </button>
-<button class="bg-secondary hover:bg-secondary-container text-white px-10 py-4 rounded-lg font-bold text-headline-md shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all">
-                            Place Order (Tk 1,745)
-                        </button>
-</div>
-</section>
-</div>
-<!-- Right Column: Cart Totals Sticky -->
-<div class="lg:col-span-4 sticky top-28">
-<div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm">
-<div class="p-6 border-b border-border-subtle bg-surface-container-lowest">
-<h3 class="font-headline-lg text-headline-lg">Order Summary</h3>
-</div>
-<div class="p-6 space-y-4">
-<div class="flex justify-between text-on-surface-variant">
-<span>Subtotal (4 items)</span>
-<span>Tk 1,745</span>
-</div>
-<div class="flex justify-between text-on-surface-variant">
-<span>Delivery Fee</span>
-<span class="line-through">Tk 60</span>
-</div>
-<div class="flex justify-between text-success-green font-bold">
-<span>Free Delivery Promo</span>
-<span>- Tk 60</span>
-</div>
-<div class="flex justify-between text-on-surface-variant">
-<span>Service Charge</span>
-<span>Tk 0</span>
-</div>
-<div class="pt-4 border-t border-border-subtle flex justify-between items-end">
-<div>
-<span class="text-on-surface-variant text-label-md">Total Payable</span>
-<div class="font-headline-xl text-headline-xl text-primary">Tk 1,745</div>
-</div>
-<span class="text-label-sm text-on-surface-variant mb-2 italic">Prices inclusive of VAT</span>
-</div>
-</div>
-<div class="p-6 bg-surface-container-low border-t border-border-subtle">
-<div class="flex gap-2 p-3 bg-white border border-border-subtle rounded-lg mb-4">
-<span class="material-symbols-outlined text-on-surface-variant" data-icon="confirmation_number">confirmation_number</span>
-<input class="bg-transparent border-none focus:ring-0 w-full p-0 text-sm" placeholder="Promo Code" type="text"/>
-<button class="text-primary font-bold text-sm">Apply</button>
-</div>
-<p class="text-label-sm text-on-surface-variant flex gap-2">
-<span class="material-symbols-outlined text-sm" data-icon="verified_user">verified_user</span>
-                            100% Satisfaction Guarantee. Hassle-free returns if any quality issue.
-                        </p>
-</div>
-</div>
-</div>
-</div>
-</main>
-<!-- Footer (Minimal for Checkout) -->
-<footer class="bg-surface-container-lowest dark:bg-surface-container-high border-t border-border-subtle py-12">
-<div class="w-full px-margin-desktop max-w-container-max-width mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-center gap-6">
-<div>
-<h2 class="font-headline-md text-headline-md font-bold text-primary mb-2">Fresh Agro</h2>
-<p class="text-on-surface-variant font-body-md">Empowering local farmers, nourishing communities.</p>
-</div>
-<div class="flex gap-8">
-<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Refund Policy</a>
-<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Privacy Policy</a>
-<a class="text-on-surface-variant hover:text-primary transition-all underline text-label-sm" href="#">Support Center</a>
-</div>
-</div>
-<div class="mt-8 pt-8 border-t border-border-subtle text-center text-on-surface-variant text-label-sm">
-                © 2024 Fresh Agro. All rights reserved.
+
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-[1280px] mx-auto">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        
+        <div class="lg:col-span-8 space-y-6">
+            <div class="bg-surface-container-lowest p-6 rounded-xl border border-border-subtle flex justify-between items-center mb-8 overflow-x-auto">
+                <div class="flex items-center gap-3 min-w-fit" id="step-indicator-1">
+                    <div class="w-10 h-10 rounded-full bg-primary text-on-primary flex items-center justify-center font-bold">1</div>
+                    <span class="text-sm font-bold text-primary">Shipping</span>
+                </div>
+                <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+                <div class="flex items-center gap-3 min-w-fit" id="step-indicator-2">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">2</div>
+                    <span class="text-sm font-bold text-on-surface-variant">Schedule</span>
+                </div>
+                <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+                <div class="flex items-center gap-3 min-w-fit" id="step-indicator-3">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">3</div>
+                    <span class="text-sm font-bold text-on-surface-variant">Summary</span>
+                </div>
+                <div class="flex-grow h-px bg-border-subtle mx-4 min-w-[20px]"></div>
+                <div class="flex items-center gap-3 min-w-fit" id="step-indicator-4">
+                    <div class="w-10 h-10 rounded-full bg-surface-container-high text-on-surface-variant flex items-center justify-center font-bold">4</div>
+                    <span class="text-sm font-bold text-on-surface-variant">Payment</span>
+                </div>
             </div>
-</div>
-</footer>
+
+            <section class="step-transition show-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-1">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary">location_on</span>
+                    <h2 class="text-2xl font-bold text-on-surface">Where should we deliver?</h2>
+                </div>
+                <form class="grid grid-cols-1 md:grid-cols-2 gap-6" onsubmit="event.preventDefault();">
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-on-surface-variant">District</label>
+                        <select id="order-district" class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary">
+                            <option>Cumilla</option>
+                            <option>Chattogram</option>
+                            <option>Sylhet</option>
+                            <option>Dhaka</option>
+                            <option>Rajsahi</option>
+                            <option>Kholna</option>
+                            <option>Josor</option>
+                            <option>Rongpur</option>
+                        </select>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-on-surface-variant">Area</label>
+                        <input id="order-area" class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="e.g. Dhanmondi, Banani" type="text"/>
+                    </div>
+                    <div class="md:col-span-2 space-y-2">
+                        <label class="text-sm font-medium text-on-surface-variant">Your Name</label>
+                        <input id="order-road" class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Enter Your Name details" type="text"/>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-on-surface-variant">House / Apartment No.</label>
+                        <input id="order-house" class="w-full border-border-subtle rounded-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="Flat 4B, House 23" type="text"/>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-sm font-medium text-on-surface-variant">Phone Number</label>
+                        <div class="flex">
+                            <span class="bg-surface-container-high border border-r-0 border-border-subtle rounded-l-lg px-3 flex items-center text-on-surface-variant">+880</span>
+                            <input id="phone" class="w-full border-border-subtle rounded-r-lg p-3 bg-surface-container-low focus:ring-primary focus:border-primary" placeholder="1XXX XXXXXX" type="tel"/>
+                        </div>
+                    </div>
+                </form>
+                <div class="mt-10 flex justify-end">
+                    <button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(2)">
+                        Next: Delivery Schedule
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary">schedule</span>
+                    <h2 class="text-2xl font-bold">Choose delivery slot</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4" id="delivery-options-container">
+                    <div onclick="selectDeliveryMethod('Express', 60, this)" class="delivery-card p-5 border-2 border-primary bg-primary-container/10 rounded-xl text-left flex flex-col gap-1 relative cursor-pointer transition-all">
+                        <div class="absolute top-3 right-3 bg-primary text-white p-0.5 rounded-full flex items-center justify-center check-icon">
+                            <span class="material-symbols-outlined text-xs">check</span>
+                        </div>
+                        <span class="bg-warning-orange text-white text-[9px] uppercase font-bold px-1.5 py-0.5 rounded w-fit mb-1">Fastest</span>
+                        <span class="text-base font-bold">Express Delivery</span>
+                        <span class="text-on-surface-variant text-xs">Delivery in 60 mins</span>
+                        <span class="font-extrabold text-primary mt-2 text-sm">Tk 60</span>
+                    </div>
+
+                    <div onclick="selectDeliveryMethod('Regular', 40, this)" class="delivery-card p-5 border border-border-subtle rounded-xl text-left flex flex-col gap-1 relative cursor-pointer hover:border-primary transition-all">
+                        <div class="absolute top-3 right-3 bg-primary text-white p-0.5 rounded-full flex items-center justify-center check-icon hidden">
+                            <span class="material-symbols-outlined text-xs">check</span>
+                        </div>
+                        <span class="bg-blue-500 text-white text-[9px] uppercase font-bold px-1.5 py-0.5 rounded w-fit mb-1">Standard</span>
+                        <span class="text-base font-bold">Regular Delivery</span>
+                        <span class="text-on-surface-variant text-xs">Delivery in 3-5 Hours</span>
+                        <span class="font-extrabold text-primary mt-2 text-sm">Tk 40</span>
+                    </div>
+
+                    <div onclick="selectDeliveryMethod('NextDay', 0, this)" class="delivery-card p-5 border border-border-subtle rounded-xl text-left flex flex-col gap-1 relative cursor-pointer hover:border-primary transition-all">
+                        <div class="absolute top-3 right-3 bg-primary text-white p-0.5 rounded-full flex items-center justify-center check-icon hidden">
+                            <span class="material-symbols-outlined text-xs">check</span>
+                        </div>
+                        <span class="bg-success-green text-white text-[9px] uppercase font-bold px-1.5 py-0.5 rounded w-fit mb-1">Saver</span>
+                        <span class="text-base font-bold">Next Day Delivery</span>
+                        <span class="text-on-surface-variant text-xs">Delivery by Tomorrow</span>
+                        <span class="font-extrabold text-success-green mt-2 text-sm">FREE</span>
+                    </div>
+                </div>
+
+                <div class="mt-10 flex justify-between">
+                    <button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(1)">
+                        <span class="material-symbols-outlined">arrow_back</span> Back
+                    </button>
+                    <button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(3)">
+                        Next: Order Summary
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-3">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary">shopping_basket</span>
+                    <h2 class="text-2xl font-bold">Review your items</h2>
+                </div>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-4 p-4 bg-surface-container-low rounded-lg">
+                        <div class="flex-grow">
+                            <h4 id="checkout-item-title" class="text-lg font-semibold text-on-surface">Organic Product</h4>
+                            <p id="checkout-item-meta" class="text-on-surface-variant text-xs">1 unit</p>
+                        </div>
+                        <span id="checkout-item-price" class="font-bold">Tk 0</span>
+                    </div>
+                </div>
+                <div class="mt-10 flex justify-between">
+                    <button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(2)">
+                        <span class="material-symbols-outlined">arrow_back</span> Back
+                    </button>
+                    <button class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-lg font-bold transition-all flex items-center gap-2 group" onclick="goToStep(4)">
+                        Next: Payment Method
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">chevron_right</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="step-transition hide-step bg-white rounded-xl border border-border-subtle p-8 shadow-sm" id="step-4">
+                <div class="flex items-center gap-3 mb-6">
+                    <span class="material-symbols-outlined text-primary">payments</span>
+                    <h2 class="text-2xl font-bold">Select Payment Method</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 gap-3">
+                    <label class="flex items-center justify-between p-4 border border-primary bg-primary-container/5 rounded-xl cursor-pointer hover:border-primary transition-all">
+                        <div class="flex items-center gap-3">
+                            <input checked type="radio" name="payment_method" value="Cash on Delivery" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <div>
+                                <h4 class="font-semibold text-sm">Cash on Delivery (ক্যাশ অন ডেলিভারি)</h4>
+                                <p class="text-on-surface-variant text-xs">পণ্য হাতে পেয়ে ডেলিভারি ম্যানের কাছে মূল্য পরিশোধ করুন।</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-primary">handshake</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="payment_method" value="bKash" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <div>
+                                <h4 class="font-semibold text-sm">bKash (বিকাশ) <span class="text-pink-600 font-bold ml-1">[01XXXXXXXXX]</span></h4>
+                                <p class="text-on-surface-variant text-xs">এই নাম্বারে টাকা পাঠিয়ে অর্ডার সম্পন্ন করুন।</p>
+                            </div>
+                        </div>
+                        <span class="text-pink-600 font-extrabold text-sm">bKash</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="payment_method" value="Nagad" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <div>
+                                <h4 class="font-semibold text-sm">Nagad (নগদ) <span class="text-orange-600 font-bold ml-1">[01XXXXXXXXX]</span></h4>
+                                <p class="text-on-surface-variant text-xs">এই নাম্বারে টাকা পাঠিয়ে অর্ডার সম্পন্ন করুন।</p>
+                            </div>
+                        </div>
+                        <span class="text-orange-600 font-extrabold text-sm">Nagad</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="payment_method" value="Rocket" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <div>
+                                <h4 class="font-semibold text-sm">Rocket (রকেট) <span class="text-purple-700 font-bold ml-1">[01XXXXXXXXX-X]</span></h4>
+                                <p class="text-on-surface-variant text-xs">এই নাম্বারে রকেট মানি ট্রান্সফার করুন।</p>
+                            </div>
+                        </div>
+                        <span class="text-purple-700 font-extrabold text-sm">Rocket</span>
+                    </label>
+
+                    <label class="flex items-center justify-between p-4 border border-border-subtle rounded-xl cursor-pointer hover:border-primary transition-all">
+                        <div class="flex items-center gap-3">
+                            <input type="radio" name="payment_method" value="Card Payment" class="w-5 h-5 text-primary border-border-subtle focus:ring-primary"/>
+                            <div>
+                                <h4 class="font-semibold text-sm">Visa / MasterCard</h4>
+                                <p class="text-on-surface-variant text-xs">যেকোনো ডেবিট বা ক্রেডিট কার্ড</p>
+                            </div>
+                        </div>
+                        <span class="material-symbols-outlined text-blue-600">credit_card</span>
+                    </label>
+                </div>
+
+                <div class="mt-10 flex justify-between items-center">
+                    <button class="text-on-surface-variant hover:text-primary font-bold px-4 py-3 flex items-center gap-2" onclick="goToStep(3)">
+                        <span class="material-symbols-outlined">arrow_back</span> Back
+                    </button>
+                    <button id="place-order-btn" class="bg-secondary hover:bg-secondary-container text-white px-10 py-4 rounded-lg font-bold text-lg shadow-lg transform hover:scale-[1.02] active:scale-95 transition-all">
+                        Place Order (Tk 0)
+                    </button>
+                </div>
+            </section>
+        </div>
+
+        <div class="lg:col-span-4 sticky top-28">
+            <div class="bg-white rounded-xl border border-border-subtle overflow-hidden shadow-sm">
+                <div class="p-6 border-b border-border-subtle bg-surface-container-lowest">
+                    <h3 class="text-xl font-bold">Order Summary</h3>
+                </div>
+                <div class="p-6 space-y-4">
+                    <div class="flex justify-between text-on-surface-variant">
+                        <span>Subtotal</span>
+                        <span id="summary-subtotal">Tk 0</span>
+                    </div>
+                    <div class="flex justify-between text-on-surface-variant">
+                        <span>Delivery Fee</span>
+                        <span id="summary-delivery-fee">Tk 60</span>
+                    </div>
+                    <div class="pt-4 border-t border-border-subtle flex justify-between items-end">
+                        <div>
+                            <span class="text-on-surface-variant text-sm">Total Payable</span>
+                            <div id="summary-total" class="text-3xl font-bold text-primary">Tk 0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
+
 <script>
-       function goToStep(stepNumber){
-               // ---- নতুন কোড: ১ম ধাপ থেকে ২য় ধাপে যাওয়ার সময় ফোন নাম্বার চেক করা ----
+let productPrice = 0;
+let deliveryFee = 60;
+let selectedDeliveryName = "Express";
+
+window.onload = function() {
+    const savedName = localStorage.getItem('checkout_product_name') || "Fresh Organic Product";
+    const savedMeta = localStorage.getItem('checkout_product_meta') || "1 unit";
+    const savedPrice = localStorage.getItem('checkout_product_price');
+
+    if(savedPrice) {
+        productPrice = parseInt(savedPrice);
+    } else {
+        productPrice = 120; 
+    }
+
+    document.getElementById('checkout-item-title').innerText = savedName;
+    document.getElementById('checkout-item-meta').innerText = savedMeta;
+    document.getElementById('checkout-item-price').innerText = "Tk " + productPrice;
+    document.getElementById('summary-subtotal').innerText = "Tk " + productPrice;
+    
+    updatePrices();
+};
+
+function selectDeliveryMethod(methodName, fee, element) {
+    deliveryFee = fee;
+    selectedDeliveryName = methodName;
+
+    document.querySelectorAll('.delivery-card').forEach(card => {
+        card.className = "delivery-card p-5 border border-border-subtle rounded-xl text-left flex flex-col gap-1 relative cursor-pointer hover:border-primary transition-all";
+        card.querySelector('.check-icon').classList.add('hidden');
+    });
+
+    element.className = "delivery-card p-5 border-2 border-primary bg-primary-container/10 rounded-xl text-left flex flex-col gap-1 relative cursor-pointer transition-all";
+    element.querySelector('.check-icon').classList.remove('hidden');
+
+    updatePrices();
+}
+
+function updatePrices() {
+    document.getElementById('summary-delivery-fee').innerText = "Tk " + deliveryFee;
+    let grandTotal = productPrice + deliveryFee;
+    document.getElementById('summary-total').innerText = "Tk " + grandTotal;
+    document.getElementById('place-order-btn').innerText = `Place Order (Tk ${grandTotal})`;
+}
+
+function goToStep(stepNumber) {
     if (stepNumber === 2) {
-        const phoneInput = document.querySelector('input[placeholder="1XXX XXXXXX"]');
+        const phoneInput = document.getElementById('phone');
         if (phoneInput && !phoneInput.value.trim()) {
-            alert("Please enter your phone number first.");
-            phoneInput.focus(); // ফোন নাম্বারের বক্সে কার্সর নিয়ে যাবে
-            return; // এখানেই আটকে দেবে, পরের ধাপে যেতে দেবে না
+            alert("দয়া করে পরের ধাপে যাওয়ার আগে আপনার ফোন নাম্বারটি দিন।");
+            phoneInput.focus();
+            return;
         }
     }
+
     const steps = [1, 2, 3, 4];
     steps.forEach(s => {
         const stepEl = document.getElementById(`step-${s}`);
         const indicatorEl = document.getElementById(`step-indicator-${s}`);
         
-        stepEl.classList.add('hide-step');
-        stepEl.classList.remove('show-step');
+        if(stepEl) {
+            stepEl.classList.add('hide-step');
+            stepEl.classList.remove('show-step');
+        }
 
-        const circle = indicatorEl.querySelector('div');
-        const label = indicatorEl.querySelector('span');
+        if(indicatorEl) {
+            const circle = indicatorEl.querySelector('div');
+            const label = indicatorEl.querySelector('span');
 
-        if (s < stepNumber) {
-            circle.classList.remove('bg-primary', 'bg-surface-container-high');
-            circle.classList.add('bg-success-green');
-            circle.innerHTML = '<span class="material-symbols-outlined">check</span>';
-            label.classList.add('text-success-green');
-            label.classList.remove('text-primary', 'text-on-surface-variant');
-        } else if (s === stepNumber) {
-            circle.classList.add('bg-primary');
-            circle.classList.remove('bg-surface-container-high', 'bg-success-green');
-            circle.innerHTML = s;
-            label.classList.add('text-primary');
-            label.classList.remove('text-on-surface-variant', 'text-success-green');
-        } else {
-            circle.classList.add('bg-surface-container-high');
-            circle.classList.remove('bg-primary', 'bg-success-green');
-            circle.innerHTML = s;
-            label.classList.add('text-on-surface-variant');
-            label.classList.remove('text-primary', 'text-success-green');
+            if (circle && label) {
+                if (s < stepNumber) {
+                    circle.classList.remove('bg-primary', 'bg-surface-container-high');
+                    circle.classList.add('bg-success-green');
+                    circle.innerHTML = '<span class="material-symbols-outlined">check</span>';
+                    label.classList.add('text-success-green');
+                    label.classList.remove('text-primary', 'text-on-surface-variant');
+                } else if (s === stepNumber) {
+                    circle.classList.add('bg-primary');
+                    circle.classList.remove('bg-surface-container-high', 'bg-success-green');
+                    circle.innerHTML = s;
+                    label.classList.add('text-primary');
+                    label.classList.remove('text-on-surface-variant', 'text-success-green');
+                } else {
+                    circle.classList.add('bg-surface-container-high');
+                    circle.classList.remove('bg-primary', 'bg-success-green');
+                    circle.innerHTML = s;
+                    label.classList.add('text-on-surface-variant');
+                    label.classList.remove('text-primary', 'text-success-green');
+                }
+            }
         }
     });
 
     const currentStep = document.getElementById(`step-${stepNumber}`);
-    currentStep.classList.remove('hide-step');
-    setTimeout(() => {
-        currentStep.classList.add('show-step');
-    }, 50);
+    if(currentStep) {
+        currentStep.classList.remove('hide-step');
+        setTimeout(() => {
+            currentStep.classList.add('show-step');
+        }, 50);
+    }
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// ---- নতুন কোড: ইউজারের ডাটা কালেক্ট এবং সার্ভারে পাঠানোর ফাংশন ----
 async function placeOrder() {
-    // ১. ফর্মের সব ইনপুট ফিল্ড থেকে ডাটা নেওয়া
-    const district = document.querySelector('select').value;
-    const area = document.querySelector('input[placeholder="e.g. Dhanmondi, Banani"]').value;
-    const roadDetails = document.querySelector('input[placeholder="Enter road details"]').value;
-    const houseNo = document.querySelector('input[placeholder="Flat 4B, House 23"]').value;
-    const phoneNo = document.querySelector('input[placeholder="1XXX XXXXXX"]').value;
+    const district = document.getElementById('order-district').value;
+    const area = document.getElementById('order-area').value;
+    const roadDetails = document.getElementById('order-road').value;
+    const houseNo = document.getElementById('order-house').value;
+    const phoneNo = document.getElementById('phone').value;
     
-    // পেমেন্ট মেথড চেক করা
-    const paymentMethod = document.querySelector('input[name="payment"]:checked').parentElement.querySelector('h4').innerText;
-    
-    // টোটাল টাকার পরিমাণ
-    const totalPayable = "Tk 1,745"; 
+    const selectedPaymentEl = document.querySelector('input[name="payment_method"]:checked');
+    const paymentMethod = selectedPaymentEl ? selectedPaymentEl.value : "Not Selected";
 
-    // সব ডাটা এক জায়গায় সাজানো
+    const productName = document.getElementById('checkout-item-title').innerText;
+    let grandTotal = productPrice + deliveryFee;
+
+    if(!phoneNo.trim()) {
+        alert("দয়া করে আপনার ফোন নাম্বারটি দিন।");
+        return;
+    }
+
     const orderData = {
+        productName: productName,
         district: district,
         area: area,
         roadDetails: roadDetails,
         houseNo: houseNo,
         phoneNo: "+880" + phoneNo,
+        deliveryMethod: selectedDeliveryName,
         paymentMethod: paymentMethod,
-        totalAmount: totalPayable,
+        totalAmount: "Tk " + grandTotal,
         orderDate: new Date().toLocaleString()
     };
 
-    // ফোন নাম্বার ফাকা থাকলে অ্যালার্ট দেবে
-    if(!phoneNo) {
-        alert("দয়া করে আপনার ফোন নাম্বারটি দিন।");
-        return;
-    }
-
-    // আপনার সার্ভার বা Google Web App URL (ধাপ ২ এ পাবেন)
     const serverURL = "https://script.google.com/macros/s/AKfycby71u2pQDWOOBTr86-QhGW8l0hUnJTglRoreo9cA20wfsMhNYIOTPGkAiq0x_oOJ55VZQ/exec"; 
 
     try {
-        // সার্ভারে ডাটা পাঠানো (POST Request)
         const response = await fetch(serverURL, {
             method: 'POST',
-            mode: 'no-cors', // Google Sheets এর জন্য এটি প্রয়োজন
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(orderData)
         });
 
-        alert("অর্ডারটি সফলভাবে সাবমিট হয়েছে!");
-        // অর্ডার সফল হলে ইউজারকে হোম পেজে বা থ্যাংক ইউ পেজে পাঠাতে পারেন
-        // window.location.href = "/thank-you.html";
-        
+        alert("অর্ডারটি সফলভাবে সাবমিট হয়েছে!");
     } catch (error) {
         console.error("Error:", error);
-        alert("দুঃখিত, অর্ডারটি নেওয়া সম্ভব হয়নি। আবার চেষ্টা করুন।");
+        alert("দুঃখিত, অর্ডারটি নেওয়া সম্ভব হয়নি।");
     }
 }
 
-// ৪ নম্বর স্টেপের "Place Order" বাটনে এই ফাংশনটি লিংক করা
-document.querySelector('#step-4 button.bg-secondary').setAttribute('onclick', 'placeOrder()');
-    </script>
-</body></html>
+document.getElementById('place-order-btn').addEventListener('click', placeOrder);
+</script>
+</body>
+</html>
